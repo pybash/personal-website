@@ -29,7 +29,6 @@ body {
 .pagesContainer {
     display:flex;
     align-items: center;
-    width:120px;
     height:50px;
     float:right;
 }
@@ -47,7 +46,8 @@ body {
     font-weight: 600;
 }
 .blueFont {
-    color: #87D4FF
+    color: #87D4FF;
+    text-shadow: #87d3ff83 1px 0 10px;
 }
 
 .socialBar {
@@ -72,4 +72,112 @@ body {
 .activityContainer img {
     padding-left: 25px;
     padding-right: 25px;
+}  
+.activityMargin {
+    margin-top: 120px;
+}
+.projectsMargin {
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+.subtitleProjects {
+    margin-top:30px;
+    font-size: 26px;
+    width:45%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.projectContainer {
+    position: relative;
+    width:95%;
+    min-height:170px;
+    background-color: #1A1A1A;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.projectImage {
+    margin-left: 20px   ;
+    height:70%;
+}
+.projectInfoContainer {
+    width:calc(100% - 280px);
+    height:70%;
+    margin-left: 20px;
+}
+.projectHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.projectHeader h2 {
+    font-size: 30px;
+    margin:0;
+    font-weight: 500;
+    margin-right: 5px;
+}
+.tag {
+    margin:0;
+    display: inline-block;
+    font-weight: 800;
+    font-size: 25px;
+    height:100%;
+    padding: 2px 15px;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+.javascriptTag {
+    color:#323330;
+    background-color: #F0DB4F;
+}
+.htmlTag {
+    background-color: #E34C26;
+}
+.cssTag {
+    background-color: #264DE3;
+}
+.completedTag {
+    background-color: #559B54;
+}
+.projectParagraph {
+    font-size: 20px;
+}
+.designTag {
+    background-color: #847ED0;
+}
+.andmore {
+    padding:0;
+    margin-top:60px;
+    font-size: 30px;
+}
+.hyperlinkInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    right:20px;
+    bottom:0px;
+}
+.hyperlinkInfo h2 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.hyperlinkIcon {
+    width:30px;
+    height:30px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+.pointerEnabled {
+    cursor: pointer;
+}
+
+.cppTag {
+    background-color: #3E67F9;
+}
+.incompleteTag {
+    background-color: #FF5468;
 }
