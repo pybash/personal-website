@@ -4,7 +4,7 @@
         "icon": "./imgs/portfolio/thegrandquest/grandquestlogo.png",
         "title": "The Grand Quest",
         "quickSummary": "Created for BHS Programming Club, students are directed around the school to solve computer science problems and trivia.",
-        "description": "Built for BHS Programming Club, this activity requires students to go around the school searching for clues and questions related to computer science. Upon completing all the provided questions, the winners win a prize for their efforts.\n\nThe website and the code was developed by me and Rohan, the club's president. It demonstrates my understanding of HTML, CSS, and front-end JS.",
+        "description": "Built for BHS Programming Club, this activity requires students to go around the school searching for clues and questions related to computer science. Promoting physical activity and team cooperation through groups of club members. Upon completing all the provided questions, the winners win a prize for their efforts.\n\nThe website and the code was developed by me and the club presient, Rohan. ",
         "links": {
             "website": "https://rohan335.github.io",
             "github": "https://github.com/rohan335/rohan335.github.io/tree/gh-pages"

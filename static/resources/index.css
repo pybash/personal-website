@@ -267,7 +267,6 @@ body {
     flex-direction: column;
     align-items: center;
     width: 85%;
-    height: 500px;
     background-color: #282828;
     margin-top: -50px;
     border-radius: 14px 14px 0 0;
@@ -275,13 +274,23 @@ body {
     overflow: hidden;
 
 }
+.projectInfo .sectionTitle {
+    font-size: 20px;
+    width: 90%;
+    margin: 0;
+            margin-top: 30px;
+    padding: 0;
+}
+.sectionText {
+    width: 90%;
+}
 .projectInfoHeader {
     width: 90%;
-    height: 160px;
 }
 
 .projectInfoDetailsContainer {
     position: relative;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -308,12 +317,9 @@ body {
 .projectLinks {
     position: absolute;
     right:0;
-    top:50%;
-    transform: translateY(-50%);
     display: block;
-    float:right;
     min-width: 180px;
-    height: 70%;
+    height: 100%;
 }
 
 .projectLinkButton {
@@ -396,5 +402,26 @@ body {
     .subtitleProjects {
         width:80%
     }
-
+    .projectInfoDetailsContainer {
+        flex-direction: column;
+    }
+    .projectTitleInfo h2 {
+        width: 100%;
+        text-align: center;
+    }
+    .projectTitleInfo p {
+        width: 100%;
+        text-align: center;
+    }
+    .projectInfoIcon {
+        margin-top: 20px;
+    }
+    .projectLinks {
+        position: relative;
+        transform: translateY(0);
+        top:0;
+    }
+    .projectInfo .sectionTitle {
+        margin-top: 30px;
+    }
 }
