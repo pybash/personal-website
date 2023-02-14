@@ -32,6 +32,11 @@ body {
     height:50px;
     float:right;
 }
+.topbarIcon {
+    fill: #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+}
 .selected {
     fill: #87D4FF
 }
@@ -187,6 +192,161 @@ body {
 }
 .marginTopIntro {
     margin-top: 150px;
+}
+.collection {
+    width: 95%;
+    max-height: 220px;
+    margin-top: 30px;
+}
+.collection h2 {
+    font-weight: 400;
+}
+.collectionProject {
+    position: relative;
+    top:0;
+    width: 320px;
+    height: 240px;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+    transition: .15s ease-in-out top, .15s ease-in-out box-shadow;
+    cursor: pointer;
+    margin-right: 20px;
+    color:white;
+}
+.collectionProject:hover {
+    top:-5px;
+    box-shadow: 0 0 15px 0 #ffffff45;
+
+}
+.collectionProject .projectImage {
+    object-fit: cover;
+    margin:0;
+    height: 130px;
+    width:320px;
+    border-radius: 7px;
+}
+.collectionProject h2 {
+    margin:0;
+    font-size: 20px;
+    font-weight: 500;
+    width: 90%;
+    text-decoration: none !important;
+
+}
+.collectionProject p {
+    width: 90%;
+    margin:0;
+    margin-top:10px;
+    text-decoration: none !important;
+
+}
+.portfolioScroll {
+    padding-top: 10px;
+    display: flex;
+    overflow: visible;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+
+.projectImagesContainer {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    background-color: #00000044;
+}
+.projectShowcaseImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.projectInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    height: 500px;
+    background-color: #282828;
+    margin-top: -50px;
+    border-radius: 14px 14px 0 0;
+    border: 1px solid #575757;
+    overflow: hidden;
+
+}
+.projectInfoHeader {
+    width: 90%;
+    height: 160px;
+}
+
+.projectInfoDetailsContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.projectInfoIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+    box-shadow: 0px 5px 9px -.5px rgba(0, 0, 0, 0.4);
+}
+.projectTitleInfo p {
+    margin:0;
+    color: rgba(255,255,255,0.8);
+    width: 45%;
+}
+.projectTitleInfo h2 {
+    margin:0;
+}
+.projectTitleInfo {
+    height: 50%;
+}
+
+.projectLinks {
+    position: absolute;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+    display: block;
+    float:right;
+    min-width: 180px;
+    height: 70%;
+}
+
+.projectLinkButton {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: #215cff ;
+    border-radius: 7px;
+    justify-content: center;
+    align-items: center;
+    fill: white;
+    margin-bottom: 10px;
+    color:white;
+    text-decoration: none !important;
+}
+.projectLinkButtonSVG {
+    padding-right: 10px;
+}
+
+.projectLinkButtonMisc {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: none ;
+    border: 2px solid rgba(136, 136, 136, 0.491);
+    border-radius: 7px;
+    justify-content: center;
+    align-items: center;
+    fill: white;
+    color:white;
+    text-decoration: none !important;
 }
 @media only screen and (max-width: 600px) {
     .topBar {
