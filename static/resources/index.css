@@ -360,6 +360,14 @@ body {
 }
 
 
+.introName {
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 80px;
+    white-space: nowrap;
+}
 /* Scrolling Text */
 @keyframes text-scrolling {
     0% { transform: translate3d(-100%, 0, 0); }
@@ -370,7 +378,7 @@ body {
     100% { transform: translate3d(-100%, 0 ,0)}
 }
 .hoverLetter:hover {
-    color:#fff;
+    color:rgba(255,255,255,0.2);
     -webkit-text-stroke: 1px white;
 
     transition: .1s ease-in-out color;
@@ -382,11 +390,12 @@ body {
     display: flex;
     justify-content: center;
     height: 400px;
-    transform: skewY(-2deg);
     flex-direction: column;
     user-select: none;
 }
 .scrollingTextSection {
+    transform: skewY(-2deg);
+
     overflow: hidden;
     width: 100%;
     display: flex;
@@ -399,7 +408,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 150px;
     color: rgba(0,0,0,0);
-    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
 .scrollingTextReverse {
     animation: text-scrolling-reverse 12s linear infinite;
@@ -407,11 +416,14 @@ body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 150px;
     color: rgba(0,0,0,0);
-    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
 
 
 @media only screen and (max-width: 600px) {
+    .introName {
+        font-size: 50px;
+    }
     .topBar {
         width:90%;
     }
