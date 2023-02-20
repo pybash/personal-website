@@ -1,16 +1,53 @@
+/* Welcome to the absolute mess of a css file.
+The reasoning for why I didn't split portions of the css file would be caching efficency.
+I'd rather much have my 5 dollar digital-ocean droplet be serving out this whole entire CSS and the browser to cache it instead of the client having to ask my server everytime for files. */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body {
     margin:0;
     padding:0;
     height:100%;
-    background-color: #292929;
+    background-color: #101314;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Ubuntu', sans-serif;
     color: white;
+    overflow-x: hidden;
+    cursor: none !important;
+}
+#floaty_cursor {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 100%;
+    z-index: 99;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .3s width, .3s height;
+    mix-blend-mode: luminosity;
+
+}
+#floaty_cursor_outline {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 99;
+    transition: .4s border;
+}
+a {
+    cursor: none;
 }
 .topOutline {
     width: 100%;
@@ -60,7 +97,6 @@ body {
     width:95%
 }
 .socialBar a {
-    cursor: pointer;
     margin-right: 10px;
 }
 .socialBar svg {
@@ -180,9 +216,7 @@ body {
     margin-right: 10px;
     object-fit: contain;
 }
-.pointerEnabled {
-    cursor: pointer;
-}
+
 
 .cppTag {
     background-color: #3E67F9;
@@ -212,7 +246,6 @@ body {
     align-items: center;
     border-radius: 7px;
     transition: .15s ease-in-out top, .15s ease-in-out box-shadow;
-    cursor: pointer;
     margin-right: 20px;
     color:white;
 }
@@ -272,7 +305,7 @@ body {
     border-radius: 14px 14px 0 0;
     border: 1px solid #575757;
     overflow: hidden;
-
+    padding-bottom: 90px;
 }
 .projectInfo .sectionTitle {
     font-size: 20px;
@@ -418,7 +451,17 @@ body {
     color: rgba(0,0,0,0);
     -webkit-text-stroke: 1px rgba(255,255,255,0.3);
 }
-
+.cool_and_crazy_funky_looking_circle_gradient_on_the_background_that_every_minimalist_website_would_absolutely_eat_up {
+    width: 2600px;
+    height: 2600px;
+    position: absolute;
+    top:-120%;
+    left:30%;
+    background: radial-gradient(50% 50% at 50% 50%, #87D4FF 0%, rgba(135, 212, 255, 0) 100%);
+opacity: 0.2;
+pointer-events: none;
+z-index: -100;
+}
 
 @media only screen and (max-width: 600px) {
     .introName {

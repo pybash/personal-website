@@ -37,4 +37,5 @@ document.addEventListener("DOMContentLoaded", () => {
     for(let x = 0; x < 5; x++) {
         document.getElementById("bottomScrollingSection").appendChild(bottomClassSpan.cloneNode(true))
     }
+
 })
