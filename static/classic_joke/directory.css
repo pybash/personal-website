@@ -1,0 +1,17 @@
+
+th {
+    text-align: left;
+    border-bottom: 1px solid black;
+
+}
+
+.iconSize {
+    width: 40px;
+}
+img {
+    display: inline-block;
+    height: 25px;
+}
+.icon {
+    text-align: center;
+}
