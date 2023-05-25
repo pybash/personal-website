@@ -28,7 +28,8 @@ body {
     width: 95%;
     background: black;
     height: 1px;
-    margin: 5px 0px;
+    margin-top: 9px;
+    margin-bottom: 3px;
 }
 .screenNameInputLabel {
     width: 90%;
@@ -74,4 +75,49 @@ body {
 }
 .noMaximize {
     opacity: .5;
+}
+#helpWindow {
+    top: 100px;
+    left:100px;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.processingInfo {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: Arial;
+    margin-bottom: 5px;
+}
+.programContainer {
+    position: relative;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    user-select: none;
+    margin-top: 20px;
+    padding: 8px 5px;
+}
+.selectedProgram {
+    background: rgba(61, 135, 255, 0.483);
+}
+.programContainer p {
+    margin:0; padding:0; font-family: "Pixelated MS Sans Serif",Arial;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 5px;
+    text-align: center;
+}
+.programContainer img{
+    width: 40px;
+    height: 40px;
+}
+.title-bar-text {
+    user-select: none;
 }

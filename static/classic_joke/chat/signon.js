@@ -4,6 +4,37 @@ document.addEventListener("DOMContentLoaded", () => {
     // Make the DIV element draggable:
     dragElement(document.getElementById("signonWindow"));
 
+    let checkedSignon = false;
+    let username = "";
+    let password = "";
+
+    document.getElementById("savepassword").addEventListener("click", () => {
+        if(document.getElementById("savepassword").checked) {
+            document.getElementById("autologin").disabled = false
+        } else {
+            document.getElementById("autologin").disabled = true;
+            document.getElementById("autologin").checked = false;
+        }
+    })
+
+    document.getElementById("passwordinput").addEventListener("input", () => {
+        let passwordinput = document.getElementById("passwordinput").value
+        if(passwordinput != "") {
+            document.getElementById("savepassword").disabled = false;
+            document.getElementById("signon").style.opacity = 1;
+            checkedSignon = true;
+
+        } else {
+            document.getElementById("savepassword").disabled = true;
+            document.getElementById("savepassword").checked = false
+            document.getElementById("autologin").disabled = true;
+            document.getElementById("autologin").checked = false;
+            document.getElementById("signon").style.opacity = 0.5;
+            checkedSignon = false;
+
+        }
+    })
+
     function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById(elmnt.id + "Bar")) {
@@ -52,6 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("signonWindow").style.display = "none"
     })
     document.getElementById("signon").addEventListener("click", () => {
-        alert(document.getElementById("usernameinput").value + ", " + document.getElementById("passwordinput").value)
+        if(checkedSignon) {
+            // alert(document.getElementById("usernameinput").value + ", " + document.getElementById("passwordinput").value)
+            username = document.getElementById("usernameinput").value
+            password = document.getElementById("passwordinput").value
+            document.getElementById("connectionUsername").innerText = username;
+            document.getElementById("connectionStatus").innerText = "1. Contacting websocket";
+            setTimeout(() => {
+                document.getElementById("connectionStatus").innerText = "2. Starting services";
+
+            }, 900)
+            // get websocket
+            document.getElementById("sectionOne").style.display = "none";
+            document.getElementById("connectionSection").style.display = "flex"
+        }
     })
+    
 })

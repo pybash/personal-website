@@ -13,46 +13,84 @@
     <script src="/classic_joke/chat/signon.js"></script>
 </head>
 <body>
-        <div class="window" style="width: 250px" id="signonWindow">
-            <div class="title-bar" id="signonWindowBar">
-              <div class="title-bar-text">
-                Sign On
-              </div>
-              <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize" class="noMaximize"></button>
-                <button aria-label="Close" id="closeSignonWindow"></button>
-              </div>
-            </div>
-            <div class="window-body alignItemsCenter flexdirectionColumn">
-              <img src="/classic_joke/chat/aimlogo.webp" class="aolLogo" draggable="false"/>
-              <div class="breakline"></div>
-              <span class="screenNameInputLabel">ScreenName</span>
-              <div class="field-row" style="width:90%">
-                <input id="usernameinput" type="text" style="width:100%" />
-              </div>
-              <span class="passwordInputLabel">Password</span>
-              <div class="field-row" style="width:90%">
-                <input id="passwordinput" type="password" style="width:100%" />
-              </div>
-              <!-- <p style="width:90%; padding:0; margin:0;">this is just a unique identifier, this will not be stored as raw text</p> -->
-              <div class="options">
-                <input type="checkbox" id="savepassword">
-                <label for="example1">Save password</label>
-                <input type="checkbox" id="autologin">
-                <label for="example2">Auto-login</label>
-              </div>
-              
-              <div class="signonContainer">
-                <div>
-                  <img src="/classic_joke/chat/signon/help.png" id="help" />
-
-                <img src="/classic_joke/chat/signon/setup.png" id="setup" />
-                </div>
-                <img src="/classic_joke/chat/signon/signonbutton.png" id="signon" />
-              </div>
-              </div>
-              
+  <div class="programContainer">
+    <img id="notepadLaunch" src="/classic_joke/chat/notepad.webp" draggable="false">
+    <p>Notepad</p>
+  </div>
+  <div class="programContainer">
+    <img id="notepadLaunch" src="/classic_joke/chat/cmd.png" draggable="false">
+    <p>secret tunnel.exe</p>
+  </div>
+  <div class="programContainer">
+    <img id="notepadLaunch" src="/classic_joke/chat/aimicon.webp" draggable="false">
+    <p>AIM</p>
+  </div>
+  <div class="window" style="width: 250px" id="signonWindow">
+      <div class="title-bar" id="signonWindowBar">
+        <div class="title-bar-text">
+          Sign On
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize" class="noMaximize"></button>
+          <button aria-label="Close" id="closeSignonWindow"></button>
+        </div>
+      </div>
+      <div class="window-body alignItemsCenter flexdirectionColumn">
+        <img src="/classic_joke/chat/aimlogo.webp" class="aolLogo" draggable="false"/>
+        <div class="breakline"></div>
+        <div class="section" id="sectionOne" style="display:flex">
+          <span class="screenNameInputLabel">ScreenName</span>
+          <div class="field-row" style="width:90%">
+            <input id="usernameinput" type="text" style="width:100%" autocomplete="off" />
           </div>
+          <span class="passwordInputLabel">Password</span>
+          <div class="field-row" style="width:90%">
+            <input id="passwordinput" type="password" style="width:100%" autocomplete="off" style="-webkit-text-security: square;"  />
+          </div>
+          <!-- <p style="width:90%; padding:0; margin:0;">this is just a unique identifier, this will not be stored as raw text</p> -->
+          <div class="options">
+            <input type="checkbox" id="savepassword" disabled autocomplete="off">
+            <label for="savepassword">Save password</label>
+            <input type="checkbox" id="autologin" disabled autocomplete="off">
+            <label for="autologin" >Auto-login</label>
+          </div>
+          
+          <div class="signonContainer">
+            <div>
+              <img src="/classic_joke/chat/signon/help.png" id="help" />
+
+            <img src="/classic_joke/chat/signon/setup.png" id="setup" />
+            </div>
+            <img src="/classic_joke/chat/signon/signonbutton.png" id="signon" style="opacity:0.5" />
+          </div>
+          <p>Version: WEB</p>
+          </div>
+        </div>
+        <div class="section" id="connectionSection" style="display:none">
+          <p class="processingInfo" id="connectionUsername">
+            superneonplushies
+          </p>
+          <p class="processingInfo" id="connectionStatus">
+            1. Contacting websocket
+          </p>
+          <button style="margin-bottom: 10px;" id="cancelwebsocket">
+            Cancel
+          </button>
+      </div>
+    </div>
+  <!-- <div class="window" style="width:400px" id="helpWindow">
+    <div class="title-bar" id="helpWindowBar">
+      <div class="title-bar-text">
+        Help & Support
+      </div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Close" id="closeHelpWindow"></button>
+      </div>
+    </div>
+    <div class="window-body">
+    </div>
+  </div> -->
 </body>
 </html>
