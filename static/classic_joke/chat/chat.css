@@ -1,0 +1,77 @@
+html, body {
+    margin:0;
+    padding:0;
+    width:100%; height:100%;
+}
+body {
+    background-image: url('/classic_joke/chat/wallpaper.jpg');
+    background-size: 100% 100%;
+}
+.centerWindow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aolLogo {
+    width: 90%;
+}
+.alignItemsCenter {
+    display: flex;
+    align-items: center;
+}
+.flexdirectionColumn {
+    flex-direction: column;
+}
+.breakline {
+    width: 95%;
+    background: black;
+    height: 1px;
+    margin: 5px 0px;
+}
+.screenNameInputLabel {
+    width: 90%;
+    font-size: 14px;
+    font-style:oblique;
+    font-weight: bold;
+    color:rgb(0, 0, 106)
+}
+.passwordInputLabel {
+    width: 90%;
+    font-size: 14px;
+    margin-top: 13px;
+    font-weight: bold;
+}
+.options {
+    margin-top: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.window {
+    position: absolute;
+    top:200px;
+    left:200px;
+}
+.signonContainer {
+    width: 90%;
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+    height: 55px;
+}
+#signon {
+    position: relative;
+    height: 50px;
+    right: 0;
+}
+#help {
+    height: 50px;
+}
+#setup {
+    height: 50px;
+}
+.noMaximize {
+    opacity: .5;
+}

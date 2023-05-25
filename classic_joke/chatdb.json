@@ -1,0 +1,15 @@
+{
+    "chats": {
+        "global": {
+            "channelName": "global chat",
+            "messages": [
+
+            ]
+        }
+    },
+    "users": {
+        "oktres#hash": {
+            "access": ["global"]
+        }
+    }
+}

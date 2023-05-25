@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Chat</title>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/xp.css"
+    >
+    <link rel="stylesheet" href="/classic_joke/chat/chat.css">
+    <script src="/classic_joke/chat/signon.js"></script>
+</head>
+<body>
+        <div class="window" style="width: 250px" id="signonWindow">
+            <div class="title-bar" id="signonWindowBar">
+              <div class="title-bar-text">
+                Sign On
+              </div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize" class="noMaximize"></button>
+                <button aria-label="Close" id="closeSignonWindow"></button>
+              </div>
+            </div>
+            <div class="window-body alignItemsCenter flexdirectionColumn">
+              <img src="/classic_joke/chat/aimlogo.webp" class="aolLogo" draggable="false"/>
+              <div class="breakline"></div>
+              <span class="screenNameInputLabel">ScreenName</span>
+              <div class="field-row" style="width:90%">
+                <input id="usernameinput" type="text" style="width:100%" />
+              </div>
+              <span class="passwordInputLabel">Password</span>
+              <div class="field-row" style="width:90%">
+                <input id="passwordinput" type="password" style="width:100%" />
+              </div>
+              <!-- <p style="width:90%; padding:0; margin:0;">this is just a unique identifier, this will not be stored as raw text</p> -->
+              <div class="options">
+                <input type="checkbox" id="savepassword">
+                <label for="example1">Save password</label>
+                <input type="checkbox" id="autologin">
+                <label for="example2">Auto-login</label>
+              </div>
+              
+              <div class="signonContainer">
+                <div>
+                  <img src="/classic_joke/chat/signon/help.png" id="help" />
+
+                <img src="/classic_joke/chat/signon/setup.png" id="setup" />
+                </div>
+                <img src="/classic_joke/chat/signon/signonbutton.png" id="signon" />
+              </div>
+              </div>
+              
+          </div>
+</body>
+</html>

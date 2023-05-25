@@ -1,5 +1,7 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express();
+app.use(bodyParser.json())
 const { attachPortfolio } = require('./portfolio/portfolio');
 const { attachClassic } = require('./classic_joke/attachclassic');
 

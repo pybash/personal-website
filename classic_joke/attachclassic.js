@@ -1,6 +1,7 @@
 const fs = require('fs')
 let possibleViewActions = ["textbio"]
 
+
 const linkConstructor = (url,name) => {
     return ("<tr><td class=\"icon\"><img src=\"../classic_joke/link.png\" /></td><td><a href=\""+url+"\">"+name+"</a></td><td>-</td></tr>")
 }
@@ -8,6 +9,13 @@ const linkConstructor = (url,name) => {
 const attachClassic = (app) => {
     let database = JSON.parse(fs.readFileSync("./portfoliodb.json", 'utf-8'))
 
+    app.get("/classic/chat", (req,res) => {
+        res.sendFile(__dirname + "/chat/login.html")
+    })
+    app.post("/classic/chat/account/auth", (req,res) => {
+        console.log(req.body)
+        res.send("lol")
+    })
     app.get("/classic", (req,res) => {
         res.sendFile(__dirname + "/index.html")
     })
