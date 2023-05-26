@@ -25,7 +25,7 @@
     <img id="notepadLaunch" src="/classic_joke/chat/aimicon.webp" draggable="false">
     <p>AIM</p>
   </div>
-  <div class="window" style="width: 250px" id="signonWindow">
+  <div class="window" style="width: 250px; display: block;" id="signonWindow">
       <div class="title-bar" id="signonWindowBar">
         <div class="title-bar-text">
           Sign On
@@ -58,11 +58,11 @@
           
           <div class="signonContainer">
             <div>
-              <img src="/classic_joke/chat/signon/help.png" id="help" />
+              <img src="/classic_joke/chat/signon/help.png" id="help" draggable="false"/>
 
-            <img src="/classic_joke/chat/signon/setup.png" id="setup" />
+            <img src="/classic_joke/chat/signon/setup.png" id="setup" draggable="false"/>
             </div>
-            <img src="/classic_joke/chat/signon/signonbutton.png" id="signon" style="opacity:0.5" />
+            <img src="/classic_joke/chat/signon/signonbutton.png" id="signon" style="opacity:0.5" draggable="false"/>
           </div>
           <p>Version: WEB</p>
           </div>
@@ -79,18 +79,66 @@
           </button>
       </div>
     </div>
-  <!-- <div class="window" style="width:400px" id="helpWindow">
-    <div class="title-bar" id="helpWindowBar">
-      <div class="title-bar-text">
-        Help & Support
+  <div class="window" style="width:200px; display: none;" id="buddyListWindow">
+    <div class="resizeSetting" id="buddylistResize"></div>
+    <div class="title-bar" id="buddyListWindowBar">
+      <div class="title-bar-text notitleOverflow" id="buddyListWindowTitle">
+        Yoyoyoyoyoyoyoyoyoyoyoyoyo
       </div>
       <div class="title-bar-controls">
         <button aria-label="Minimize"></button>
-        <button aria-label="Close" id="closeHelpWindow"></button>
+        <button aria-label="Close" id="closeBuddyListWindow"></button>
       </div>
     </div>
     <div class="window-body">
+      <div class="centerAlign">
+        <img class="logo" src="/classic_joke/chat/aimlogo.webp" draggable="false" style="user-select: none; margin-bottom: 20px">
+      </div>
+      <ul class="tree-view buddyListTree">
+        <li>
+          <details>
+            <summary class="sumImportant">Buddies (0/#)</summary>
+            <ul>
+              <li><strong class="buddyClick">Buddy One</strong></li>
+              <li><strong class="buddyClick">Buddy Two</strong></li>
+
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="sumImportant">Family (0/#)</summary>
+            <ul>
+              <li><strong class="buddyClick">Family One</strong></li>
+              <li><strong class="buddyClick">Family Two</strong></li>
+
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="sumImportant">CoWorkers (0/#)</summary>
+            <ul>
+              <li><strong class="buddyClick">CoWorkers One</strong></li>
+              <li><strong class="buddyClick">CoWorkers Two</strong></li>
+
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="sumImportant">Offline (0/#)</summary>
+            <ul>
+              <li><strong class="buddyClick offlineUser">Offline One</strong></li>
+              <li><strong class="buddyClick offlineUser">Offline Two</strong></li>
+              <li><strong class="buddyClick offlineUser">Offline Three</strong></li>
+              <li><strong class="buddyClick offlineUser">Offline Four</strong></li>
+
+            </ul>
+          </details>
+        </li>
+      </ul>
     </div>
-  </div> -->
+  </div>
 </body>
 </html>

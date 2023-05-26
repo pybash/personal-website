@@ -9,7 +9,8 @@
     },
     "users": {
         "oktres#hash": {
-            "access": ["global"]
+            "access": ["global"],
+            "buddies": []
         }
     }
 }
