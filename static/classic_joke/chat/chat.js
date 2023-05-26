@@ -91,6 +91,21 @@ document.addEventListener("DOMContentLoaded", () => {
             // alert(document.getElementById("usernameinput").value + ", " + document.getElementById("passwordinput").value)
             username = document.getElementById("usernameinput").value
             password = document.getElementById("passwordinput").value
+            
+            fetch("/classic/chat/account/auth", {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({"user": username})
+            })
+            .then(resp => resp.json())
+            .then(response => {
+                console.log(response)
+            })
             document.getElementById("connectionUsername").innerText = username;
             // document.getElementById("buddyListWindowTitle").innerText = username;
             if(username.endsWith("s")) {
@@ -120,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("buddyListWindow").style.display = "none"
     })
 
-    function initalizeResizeDrag(dragElem, window, minWidth) {
+    function initalizeResizeDrag(dragElem, window, minWidth, maxWidth=99999) {
         let currentWidth = parseInt(window.style.width.substring(0,parseInt(window.style.width.length - 2)))
         let pos1 = 0,pos2 = 0;
         let widthChange;
@@ -129,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(dragActivated) {
                 pos2 = mouse.clientX
 
-                if(currentWidth + (pos2 - pos1) > minWidth) {
+                if(minWidth < (currentWidth + (pos2 - pos1)) && (currentWidth + (pos2 - pos1)) < maxWidth ) {
                     widthChange = currentWidth + (pos2 - pos1)
                     window.style.width = widthChange + "px"
                 }
@@ -149,5 +164,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     }
-    initalizeResizeDrag(document.getElementById("buddylistResize"), document.getElementById("buddyListWindow"), 150)
+    initalizeResizeDrag(document.getElementById("buddylistResize"), document.getElementById("buddyListWindow"), 150, 350)
 })

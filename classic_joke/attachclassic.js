@@ -8,13 +8,20 @@ const linkConstructor = (url,name) => {
 
 const attachClassic = (app) => {
     let database = JSON.parse(fs.readFileSync("./portfoliodb.json", 'utf-8'))
+    let chatdb = JSON.parse(fs.readFileSync("./classic_joke/chatdb.json", 'utf-8'))
 
     app.get("/classic/chat", (req,res) => {
         res.sendFile(__dirname + "/chat/login.html")
     })
     app.post("/classic/chat/account/auth", (req,res) => {
-        console.log(req.body)
-        res.send("lol")
+        if(Object.keys(chatdb.users).includes(req.body.user)) {
+            res.send({status:200, ...chatdb.users[req.body.user]})
+        } else {
+            res.send({
+                status: 404,
+                error: "User not found"
+            })
+        }
     })
     app.get("/classic", (req,res) => {
         res.sendFile(__dirname + "/index.html")

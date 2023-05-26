@@ -10,7 +10,7 @@
   href="https://unpkg.com/xp.css"
     >
     <link rel="stylesheet" href="/classic_joke/chat/chat.css">
-    <script src="/classic_joke/chat/signon.js"></script>
+    <script src="/classic_joke/chat/chat.js"></script>
 </head>
 <body>
   <div class="programContainer">
@@ -27,7 +27,8 @@
   </div>
   <div class="window" style="width: 250px; display: block;" id="signonWindow">
       <div class="title-bar" id="signonWindowBar">
-        <div class="title-bar-text">
+        <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
+        <div class="title-bar-text title-has-icon">
           Sign On
         </div>
         <div class="title-bar-controls">
@@ -79,10 +80,11 @@
           </button>
       </div>
     </div>
-  <div class="window" style="width:200px; display: none;" id="buddyListWindow">
+  <div class="window" style="width:250px; display: none;" id="buddyListWindow">
     <div class="resizeSetting" id="buddylistResize"></div>
     <div class="title-bar" id="buddyListWindowBar">
-      <div class="title-bar-text notitleOverflow" id="buddyListWindowTitle">
+      <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
+      <div class="title-bar-text notitleOverflow title-has-icon" id="buddyListWindowTitle">
         Yoyoyoyoyoyoyoyoyoyoyoyoyo
       </div>
       <div class="title-bar-controls">
@@ -99,8 +101,6 @@
           <details>
             <summary class="sumImportant">Buddies (0/#)</summary>
             <ul>
-              <li><strong class="buddyClick">Buddy One</strong></li>
-              <li><strong class="buddyClick">Buddy Two</strong></li>
 
             </ul>
           </details>
@@ -109,25 +109,21 @@
           <details>
             <summary class="sumImportant">Family (0/#)</summary>
             <ul>
-              <li><strong class="buddyClick">Family One</strong></li>
-              <li><strong class="buddyClick">Family Two</strong></li>
 
             </ul>
           </details>
         </li>
         <li>
           <details>
-            <summary class="sumImportant">CoWorkers (0/#)</summary>
+            <summary class="sumImportant">Co-Workers (0/#)</summary>
             <ul>
-              <li><strong class="buddyClick">CoWorkers One</strong></li>
-              <li><strong class="buddyClick">CoWorkers Two</strong></li>
 
             </ul>
           </details>
         </li>
         <li>
           <details>
-            <summary class="sumImportant">Offline (0/#)</summary>
+            <summary class="sumImportant"><strong class="listOffline">Offline (0/#)</strong></summary>
             <ul>
               <li><strong class="buddyClick offlineUser">Offline One</strong></li>
               <li><strong class="buddyClick offlineUser">Offline Two</strong></li>
@@ -137,6 +133,7 @@
             </ul>
           </details>
         </li>
+        
       </ul>
     </div>
   </div>
