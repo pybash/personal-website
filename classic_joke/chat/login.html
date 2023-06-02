@@ -25,7 +25,7 @@
     <img id="notepadLaunch" src="/classic_joke/chat/aimicon.webp" draggable="false">
     <p>AIM</p>
   </div>
-  <div class="window" style="width: 250px; display: block;" id="signonWindow">
+  <div class="window" style="width: 250px; display: block; top:200px;left:200px;" id="signonWindow">
       <div class="title-bar" id="signonWindowBar">
         <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
         <div class="title-bar-text title-has-icon">
@@ -45,6 +45,7 @@
           <div class="field-row" style="width:90%">
             <input id="usernameinput" type="text" style="width:100%" autocomplete="off" />
           </div>
+          <a class="signOnA"><span id="getScreenNameHref">Get a ScreenName</span></a>
           <span class="passwordInputLabel">Password</span>
           <div class="field-row" style="width:90%">
             <input id="passwordinput" type="password" style="width:100%" autocomplete="off" style="-webkit-text-security: square;"  />
@@ -94,16 +95,32 @@
       </div>
     </div>
     <div class="menu-bar">
-      <a class="menu-selection">My AIM</a>
-      <a class="menu-selection">People</a>
-      <a class="menu-selection">Help</a>
+      <a class="menu-selection" showsMenu="aimFirstTab">My AIM</a>
+      <a class="menu-selection" showsMenu="aimSecondTab">People</a>
+      <a class="menu-selection" showsMenu="aimThirdTab">Help</a>
 
     </div>
-    <ul class="menu-bar-treeviews">
-      <li>
-        <ul>GG</ul>
-      </li>
-    </ul>
+    <div class="menuTabs" style="position:relative; top:0;" id="buddyListTabs">
+      <ul id="aimFirstTab" style="display:none;left: 0; position: absolute;top:0;">
+        <li><span class="menuiconSpacing"></span>Change Profile</li>
+
+        <li id="aimbuddyLogout"><span class="menuiconSpacing"></span>Logout</li>
+        <div class="tabBreakLine"></div>
+        <li class="unavailable"><span class="menuiconSpacing"></span>Break the system</li>
+      </ul>
+      <ul id="aimSecondTab" style="display:none;left: 48px; position: absolute;top:0;">
+        <li><span class="menuiconSpacing"></span>Add a Buddy</li>
+        <li><span class="menuiconSpacing"></span>Join Chatroom</li>
+      </ul>
+      <ul id="aimThirdTab" style="display:none;left: 98px; position: absolute;top:0;">
+        <li><span class="menuiconSpacing"></span>About</li>
+        <li><span class="menuiconSpacing"></span>Credits</li>
+        <div class="tabBreakLine"></div>
+        <li><span class="menuiconSpacing"></span>Status</li>
+
+      </ul>
+
+    </div>
     <div class="window-body">
 
       <div class="centerAlign">
@@ -112,42 +129,84 @@
       <ul class="tree-view buddyListTree">
         <li>
           <details>
-            <summary class="sumImportant">Buddies (0/#)</summary>
-            <ul>
+            <summary class="sumImportant">Chatrooms</summary>
+            <ul id="chatroomListUL">
 
             </ul>
           </details>
         </li>
         <li>
           <details>
-            <summary class="sumImportant">Family (0/#)</summary>
-            <ul>
+            <summary class="sumImportant" id="buddiesListLabel">Buddies (0/#)</summary>
+            <ul id="buddiesListUL">
 
             </ul>
           </details>
         </li>
         <li>
           <details>
-            <summary class="sumImportant">Co-Workers (0/#)</summary>
-            <ul>
+            <summary class="sumImportant" id="familyListLabel">Family (0/#)</summary>
+            <ul id="familyListUL">
 
             </ul>
           </details>
         </li>
         <li>
           <details>
-            <summary class="sumImportant"><strong class="listOffline">Offline (0/#)</strong></summary>
-            <ul>
-              <li><strong class="buddyClick offlineUser">Offline One</strong></li>
+            <summary class="sumImportant" id="coworkersListLabel">Co-Workers (0/#)</summary>
+            <ul id="coworkersListUL">
+
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary class="sumImportant"><strong class="listOffline" id="offlineListLabel">Offline (0/#)</strong></summary>
+            <ul id="offlineUserListUL">
+              <!-- <li><strong class="buddyClick offlineUser">Offline One</strong></li>
               <li><strong class="buddyClick offlineUser">Offline Two</strong></li>
               <li><strong class="buddyClick offlineUser">Offline Three</strong></li>
-              <li><strong class="buddyClick offlineUser">Offline Four</strong></li>
+              <li><strong class="buddyClick offlineUser">Offline Four</strong></li> -->
 
             </ul>
           </details>
         </li>
         
       </ul>
+    </div>
+  </div>
+  <div class="window"id="getScreenNameWindow" style="width:200px; display: none;">
+    <div class="resizeSetting" id="getScreenNameResize"></div>
+    <div class="title-bar" id="getScreenNameWindowBar">
+      <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
+      <div class="title-bar-text notitleOverflow title-has-icon">
+        Register Screen Name
+      </div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Close" id="closeGetScreenNameWindow"></button>
+      </div>
+    </div>
+    <div class="window-body getscreenbody">
+      <div id="getscreensectionone" style="display:block">
+        <h2>Get a screen name</h2>
+        <p><span style="color:red">*</span> required fields</p>
+        <h3>ScreenName <span style="color:red">*</span></h3>
+        <div class="field-row" style="width:90%">
+          <input id="newusername" type="text" style="width:100%" autocomplete="off" />
+        </div>
+        <h3>Password <span style="color:red">*</span></h3>
+        <div class="field-row" style="width:90%">
+          <input id="newPassword" type="password" style="width:100%" autocomplete="off" />
+        </div>
+        <p id="getScreenNameStatus" style="color:red"></p>
+
+        <button id="registerScreenNameButton">Register</button>
+      </div>
+      <div id="getscreensectiontwo" style="display:none">
+        <h2>Screen name registered!</h2>
+        <p>Screen name has been registered.. feel free to login now!</p>
+      </div>
     </div>
   </div>
 </body>

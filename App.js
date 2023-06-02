@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express();
+const expressWs = require('express-ws')(app)
 app.use(bodyParser.json())
 const { attachPortfolio } = require('./portfolio/portfolio');
 const { attachClassic } = require('./classic_joke/attachclassic');
@@ -9,6 +10,6 @@ app.use(express.static(__dirname +"/static"))
 attachPortfolio(app);
 attachClassic(app);
 
-app.listen(3300, () => {
+app.listen(8080, () => {
     console.log("running server")
 })

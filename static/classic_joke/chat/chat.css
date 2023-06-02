@@ -226,3 +226,93 @@ body {
 .menu-bar-treeviews li ul {
     padding:0;
 }
+.menuTabs {
+    position: absolute;
+    top:48px;
+    left:50%;
+    transform: translateX(-50%);
+    width: calc(100% - 6px);
+}
+.menuTabs ul {
+    margin:0;
+    padding:0;
+    min-width: 150px;
+    min-height: 20px;
+    background:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2px;
+    border: 1px solid gray;
+    padding-bottom: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+.menuTabs ul li {
+
+    list-style-type: none;
+    width: 98%;
+    display: block;
+    padding:3px 0px;
+    margin:0;
+    user-select: none;
+    left:20px;
+    font-size: 13px;
+    font-family:  "Pixelated MS Sans Serif",Arial;
+    display: flex;
+}
+.menuTabs ul li:hover:not(.unavailable) {
+    background: rgba(49,106,197,255);
+    color:white;
+}
+.menuiconSpacing {
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-right: 5px;
+}
+.tabBreakLine {
+    width: 95%;
+    height: 1px;
+    background: rgb(165, 165, 165);
+    margin:4px 0;
+}
+.unavailable{
+    color: rgb(165, 165, 165)
+}
+.signOnA {
+    width: 90%;
+    user-select: none;
+    font-family:  "Pixelated MS Sans Serif",Arial;
+    margin-bottom: -5px;
+    margin-top: 5px;
+}
+.signOnA span {
+    cursor:pointer
+}
+.signOnA span:hover {
+    text-decoration: underline;
+}
+.getscreenbody h2 {
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin:0;
+    padding:0;
+}
+.getscreenbody p {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    margin-top: 5px;
+}
+.getscreenbody h3 {
+    font-size: 15px;
+    padding:0;
+    margin: 5px 0;
+    font-family:  "Pixelated MS Sans Serif",Arial;
+    user-select: none;
+}
+.getscreenbody button {
+    margin: 5px 0;
+}

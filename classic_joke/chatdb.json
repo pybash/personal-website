@@ -1,21 +1,57 @@
 {
-    "chats": {
+    "chatrooms": {
         "global": {
             "channelName": "global chat",
             "messages": [
-
+                {
+                    "user": "oktres",
+                    "timestamp": 1685630034112,
+                    "content": "Hello world!"
+                }
             ]
         }
     },
     "users": {
         "oktres": {
-            "access": ["global"],
+            "access": [
+                "global"
+            ],
             "list": {
-                "buddies": [],
-                "family": [],
-                "coworkers": []
-            }
+                "buddies": [
+                    "tres"
+                ],
+                "family": [
+                    "familymember1",
+                    "familymember2"
+                ],
+                "coworkers": [
+                    "coworker1",
+                    "coworker2",
+                    "coworker3"
+                ]
+            },
+            "salt": "0.eblqzewj5cv",
+            "passHash": "NjAzOWJkNGU5ODY4NWEyY2U3ZWEyYzgzOTY1MTg4MjhiNTgzNTA1YzljMTkzODAyNGMwZDUxYWJiOTAxNzllZg=="
         }
     },
-    "authTokens": {}
+    "authTokens": {
+        "cbhvltky02rp8ya8y5dd7qwr3ivzhf9k": "oktres",
+        "l7clby9011d4iw197e81yf45kkd6zt1v": "oktres",
+        "xd51ehzznpjxf1rjm27w4au0ik0exan4": "oktres",
+        "e57jdey3hdnqf05zi86f8bwwwonl2miqi": "oktres",
+        "ibpr7g2yk93vtccjr54jqxm5ntaz40b": "oktres",
+        "fpijstrwwxhigdujmhvamxldekq8t9r": "oktres",
+        "dxgi7vwhck5247lfc5y2xuh37srrgtc053": "oktres",
+        "o6l0w1z95rbghddtwpq16cjj5wi0miy9": "oktres",
+        "6v6sj7jw7ewy5agorlg54hyeda0203t2": "oktres",
+        "l181999vjfg6oys5eirw0krk75mc272z": "oktres",
+        "h5tw2bxz5djazi1h5vassmefvhzaulit": "oktres",
+        "wov5xwi56xrdrw07y5g2i7gphdlqjvd6p": "oktres",
+        "xgyfn25vaynuk8ejm3g1s0x9u34zv2aia": "oktres",
+        "zynvhjui8gnr3ynx64ef4915zf7n5frxi": "oktres",
+        "e7n55c86rls8yd7e9ya9gwdykngz28mo": "oktres",
+        "43lewxwc3rg19shm04xmctmpvguntq15": "oktres",
+        "3p1j8qvq17d8m3a6l65psiymd0lssxwhj": "oktres",
+        "v9t8nc0j8faovo5qwdmluoy3jjgfzq9ps": "oktres"
+    }
 }
