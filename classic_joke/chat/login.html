@@ -11,6 +11,7 @@
     >
     <link rel="stylesheet" href="/classic_joke/chat/chat.css">
     <script src="/classic_joke/chat/chat.js"></script>
+    <link rel="shortcut icon" href="/classic_joke/chat//aimicon.webp" type="image/x-icon">
 </head>
 <body>
   <div class="programContainer">
@@ -25,7 +26,7 @@
     <img id="notepadLaunch" src="/classic_joke/chat/aimicon.webp" draggable="false">
     <p>AIM</p>
   </div>
-  <div class="window" style="width: 250px; display: block; top:200px;left:200px;" id="signonWindow">
+  <div class="window" style="width: 250px; display: none; top:200px;left:200px;" id="signonWindow">
       <div class="title-bar" id="signonWindowBar">
         <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
         <div class="title-bar-text title-has-icon">
@@ -207,6 +208,46 @@
         <h2>Screen name registered!</h2>
         <p>Screen name has been registered.. feel free to login now!</p>
       </div>
+    </div>
+  </div>
+  <div class="window"id="chatWindow" style="width: 400px; display: block;">
+    <div class="resizeSetting" id="chatResize"></div>
+    <div class="title-bar" id="chatWindowBar">
+      <img class="title-icon" src="/classic_joke/chat/aimicon.webp">
+      <div class="title-bar-text notitleOverflow title-has-icon">
+        * : * - Instant Message
+      </div>
+      
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Close" id="closeChatWindow"></button>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <a class="menu-selection" showsMenu="aimFirstTab">File</a>
+      <a class="menu-selection" showsMenu="aimSecondTab">Edit</a>
+      <a class="menu-selection" showsMenu="aimThirdTab">Insert</a>
+      <a class="menu-selection" showsMenu="aimThirdTab">People</a>
+
+
+    </div>
+    <div class="window-body chatWindowBody">
+      <div class="chatTextArea" spellcheck="false">
+        <span><span class="senderColor">xXNoobieDestroyerXx</span>: hey!</span>
+        <span><span class="recipentColor">oktres</span>: hey!</span>
+        <span><span class="senderColor">xXNoobieDestroyerXx</span>: heard ure gettin cod:bo </span>
+        <span><span class="recipentColor">oktres</span>: yeah! heard so much bout it XD</span>
+        <span><span class="senderColor">xXNoobieDestroyerXx</span>: we can team up wit tha boys, zombiez has been p[retty fun!</span>
+        <span><span class="recipentColor">oktres</span>: thats sick! sounds fun!</span>
+
+
+      </div>
+      <div class="textSelectionBar">
+        <a>A</a>
+        <a style="background:blue; color:white">A</a>
+        <div class="selectionbreak"></div>
+      </div>
+      <textarea spellcheck="false" class="chatResponseArea" autocomplete="off"></textarea>
     </div>
   </div>
 </body>

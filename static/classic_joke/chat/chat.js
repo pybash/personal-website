@@ -12,8 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let username = "";
     let password = "";
     var authtoken = ""
+    let displayname = ""
     function openChat(type, name) {
         console.log(type,name)
+    }
+    function setDisplayName(name) {
+        displayname = name;
     }
 
     function initalizeBuddyList() {
@@ -35,10 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 document.getElementById("chatroomListUL").appendChild(elem)
             }
+            let activeBuddiesN = 0;
             for(let chat of body.content.list.buddies) {
                 let elem = document.createElement("li")
                 let strong = document.createElement("strong")
-                strong.classList = ["buddyClick"]
+                if(body.content.activeBuddies.includes(chat)) {
+                    strong.classList.add("buddyClick")
+                    activeBuddiesN++
+                } else {
+                    strong.classList.add("buddyClick")
+                    strong.classList.add("offlineUser")
+                }
                 strong.innerText = chat
                 elem.appendChild(strong)
                 elem.onclick = function() {
@@ -46,12 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 document.getElementById("buddiesListUL").appendChild(elem)
             }
-            document.getElementById("buddiesListLabel").innerText = "Buddies (" + String(0) + "/" + String(body.content.list.buddies.length) + ")"
+            document.getElementById("buddiesListLabel").innerText = "Buddies (" + String(activeBuddiesN) + "/" + String(body.content.list.buddies.length) + ")"
             
+            let activeFamilyN = 0;
             for(let chat of body.content.list.family) {
                 let elem = document.createElement("li")
                 let strong = document.createElement("strong")
-                strong.classList = ["buddyClick"]
+                if(body.content.activeBuddies.includes(chat)) {
+                    strong.classList.add("buddyClick")
+                    activeFamilyN++;
+                } else {
+                    strong.classList.add("buddyClick")
+                    strong.classList.add("offlineUser")
+                }
                 strong.innerText = chat
                 elem.appendChild(strong)
                 elem.onclick = function() {
@@ -59,12 +77,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 document.getElementById("familyListUL").appendChild(elem)
             }
-            document.getElementById("familyListLabel").innerText = "Buddies (" + String(0) + "/" + String(body.content.list.family.length) + ")"
+            document.getElementById("familyListLabel").innerText = "Family (" + String(activeFamilyN) + "/" + String(body.content.list.family.length) + ")"
             
+            let activecowN = 0;
             for(let chat of body.content.list.coworkers) {
                 let elem = document.createElement("li")
                 let strong = document.createElement("strong")
-                strong.classList = ["buddyClick"]
+                if(body.content.activeBuddies.includes(chat)) {
+                    strong.classList.add("buddyClick")
+                    activecowN++;
+                } else {
+                    strong.classList.add("buddyClick")
+                    strong.classList.add("offlineUser")
+                }
                 strong.innerText = chat
                 elem.appendChild(strong)
                 elem.onclick = function() {
@@ -72,8 +97,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 document.getElementById("coworkersListUL").appendChild(elem)
             }
-            document.getElementById("coworkersListLabel").innerText = "Buddies (" + String(0) + "/" + String(body.content.list.coworkers.length) + ")"
+            document.getElementById("coworkersListLabel").innerText = "Coworkers (" + String(activecowN) + "/" + String(body.content.list.coworkers.length) + ")"
 
+            let offlineUsers = [...body.content.list.buddies, ...body.content.list.family, ...body.content.list.coworkers]
+
+            for(let online of body.content.activeBuddies) {
+                offlineUsers.splice(offlineUsers.indexOf(online), 1)
+            }
+
+            for(let chat of offlineUsers) {
+                let elem = document.createElement("li")
+                let strong = document.createElement("strong")
+                strong.classList.add("buddyClick")
+                strong.classList.add("offlineUser")
+                strong.innerText = chat
+                elem.appendChild(strong)
+                elem.onclick = function() {
+                    openChat("pm", chat)
+                }
+                document.getElementById("offlineUserListUL").appendChild(elem)
+            }
+            document.getElementById("offlineListLabel").innerText = "Offline (" + String(offlineUsers.length) + ")";
 
 
             websocket.removeEventListener("message", listFetchresponse)
@@ -197,11 +241,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     document.getElementById("connectionUsername").innerText = username;
                     // document.getElementById("buddyListWindowTitle").innerText = username;
-                    if(username.endsWith("s")) {
-                        document.getElementById("buddyListWindowTitle").innerText = username + "' Buddy List";
+                    if(response.displayName.endsWith("s")) {
+                        document.getElementById("buddyListWindowTitle").innerText = response.displayName + "' Buddy List";
                     } else {
-                        document.getElementById("buddyListWindowTitle").innerText = username + "'s Buddy List";
+                        document.getElementById("buddyListWindowTitle").innerText = response.displayName + "'s Buddy List";
                     }
+                    setDisplayName(response.displayName)
                     document.getElementById("connectionStatus").innerText = "1. Contacting websocket";
 
                     // get websocket

@@ -5,7 +5,7 @@ const sha256 = require('sha256')
 
 
 const randomtoken = () => {
-    return Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
+    return Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
 }
 
 const linkConstructor = (url,name) => {
@@ -23,7 +23,8 @@ const userConstruct = (username,password) => {
             "coworkers": []
         },
         "salt": salt,
-        "passHash": passHash
+        "passHash": passHash,
+        "displayName": username
     }
 }
 
@@ -31,7 +32,10 @@ const hashFunc = (inp) => {
     return Buffer.from(sha256(inp)).toString('base64')
 }
 
-const connectedUsers = {}
+const connectedUsers = {
+    uCIDs: {},
+    activeUsers: ["tres"]
+}
 
 const attachClassic = (app) => {
     let database = JSON.parse(fs.readFileSync("./portfoliodb.json", 'utf-8'))
@@ -44,11 +48,16 @@ const attachClassic = (app) => {
     app.ws("/chatws", (ws,req) => {
         let authToken = ""
         let uCID = randomtoken()
-        connectedUsers[uCID] = ws;
+        let loggedIn = false;
+        let username = ""
+        connectedUsers.uCIDs[uCID] = ws;
         console.log("User connected, assigned: " + uCID)
         ws.on('close', () => {
             console.log("User disconnected, had: " + uCID)
-            delete connectedUsers[uCID]
+            if(loggedIn) {
+                connectedUsers.activeUsers.splice(connectedUsers.activeUsers.indexOf(username), 1)
+            }
+            delete connectedUsers["uCIDs"][uCID]
         })
         
         ws.on('message', (msg) => {
@@ -63,6 +72,9 @@ const attachClassic = (app) => {
                     if(Object.keys(chatdb.authTokens).includes(body.content)) {
                         authToken = body.content;
                         console.log("USER " + chatdb.authTokens[authToken] + " has logged in with uCID of " + uCID)
+                        loggedIn = true;
+                        username = chatdb.authTokens[authToken]
+                        connectedUsers.activeUsers.push(username)
                         ws.send(JSON.stringify({
                             "type": "auth-update",
                             "content": "AUTHORIZED"
@@ -81,11 +93,23 @@ const attachClassic = (app) => {
                 }
             } else {
                 if(body.type == "listfetch") {
+                    let userData = chatdb.users[chatdb.authTokens[authToken]]
+                    let allBuddies = [...userData.list.buddies, ...userData.list.family, ...userData.list.coworkers]
+                    let activeBuddies = []
+                    for(let buddy of allBuddies) {
+                        if(connectedUsers["activeUsers"].includes(buddy)) {
+                            activeBuddies.push(buddy)
+                        }
+                    }
+                    // console.log([...body.content.list.buddies, ...body.content.list.family, ...body.content.list.coworkers])
                     ws.send(JSON.stringify({
                         "type": "inital-list-fetch",
                         "content": {
-                            chatrooms: chatdb.users[chatdb.authTokens[authToken]].access,
-                            list: chatdb.users[chatdb.authTokens[authToken]].list}
+                            chatrooms: userData.access,
+                            list: userData.list,
+                            activeBuddies: activeBuddies
+                        }
+                            
                     }))
                 }
             }
@@ -99,13 +123,14 @@ const attachClassic = (app) => {
         let body = req.body
 
         if(Object.keys(chatdb.users).includes(body.user.toLowerCase())) {
-            if(hashFunc(body.password + chatdb.users[body.user.toLowerCase()].salt) == chatdb.users[body.user].passHash) {
+            if(hashFunc(body.password + chatdb.users[body.user.toLowerCase()].salt) == chatdb.users[body.user.toLowerCase()].passHash) {
                 let authToken = randomtoken();
                 chatdb.authTokens[authToken] = body.user.toLowerCase()
                 writetoDb()
                 res.send({
                     status:200,
-                    token: authToken
+                    token: authToken,
+                    displayName: chatdb.users[body.user.toLowerCase()].displayName
                 })
             } else {
                 res.send({status:400, error: "INVALID_USER_OR_PASS"})
